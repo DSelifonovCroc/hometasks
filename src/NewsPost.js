@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 class NewsPost extends Component {
   render() {
-    const title = this.props.title;
+    const text = this.props.text;
 
     return (
       <div className="NewsPost">
-        Hot News: {title}
+        <p>{text}</p>
       </div>
     );
   }
