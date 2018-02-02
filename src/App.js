@@ -19,7 +19,7 @@ class App extends Component {
     };
 
     handleTabClick = step => {
-        this.setState({step: step});
+        this.setState({step});
     }
 
     handleChangeForm = (key, value) => {
@@ -27,19 +27,19 @@ class App extends Component {
     }
 
     isFormCommitable = () => {
-        const state = this.state;
+        const {step, firstName, lastName, email, cardNumber} = this.state;
 
-        if ( state.step === 1 && (
-            state.firstName === '' || 
-            state.lastName === '' ||
-            state.email === '' || 
-            !state.email.includes('@')
+        if (step === 1 && (
+            firstName === '' || 
+            lastName === '' ||
+            email === '' || 
+            !email.includes('@')
             )
         ){
             return false;
-        } else if (state.step === 2 && state.cardNumber.length !== 16 ) {
+        } else if (step === 2 && cardNumber.length !== 16 ) {
             return false;
-        } else if (state.step !== 1 && state.step !== 2) {
+        } else if (step !== 1 && step !== 2) {
             return false;
         }
 
@@ -47,26 +47,27 @@ class App extends Component {
     }
 
     renderForm = () => {
-        const state = this.state
-        switch(state.step){
-            case 1:
-                return (<PersonalForm 
-                            firstName={state.firstName} 
-                            lastName={state.lastName} 
-                            email={state.email} 
-                            onChangeForm={this.handleChangeForm} />);
-            case 2:
-                return (<CardForm 
-                            cardNumber={state.cardNumber} 
-                            onChangeForm={this.handleChangeForm} 
-                            onChangeTimeOver={this.handleChangeTimeOver} />);
-            case 3:
-                return ('Поздравляем!');
+        const {step, firstName, lastName, email, cardNumber} = this.state;
+
+        if (step === 1){
+            return (<PersonalForm 
+                firstName={firstName} 
+                lastName={lastName} 
+                email={email} 
+                onChangeForm={this.handleChangeForm} />);
+        } else if (step === 2){
+            return (<CardForm 
+                cardNumber={cardNumber} 
+                onChangeForm={this.handleChangeForm} 
+                onChangeTimeOver={this.handleChangeTimeOver} />);
+        } else if (step === 3){
+            return ('Поздравляем!');
         }
     }
   
     render() { 
         const step = this.state.step;
+        const disabled = this.isFormCommitable() ? '' : 'disabled'
         return (
             <div className="App">
                 <div className="container">
@@ -74,22 +75,22 @@ class App extends Component {
                         <Step 
                             number={1} 
                             onClick={this.handleTabClick} 
-                            isSelected={step === 1 ? true : false} 
-                            isClickable={step > 1 ? true : false} 
+                            isSelected={step === 1} 
+                            isClickable={step > 1} 
                         >Personal information</Step>
                         
                         <Step 
                             number={2} 
                             onClick={this.handleTabClick} 
-                            isSelected={step === 2 ? true : false} 
-                            isClickable={step > 2 ? true : false} 
+                            isSelected={step === 2} 
+                            isClickable={step > 2} 
                         >Card information</Step>
 
                         <Step 
                             number={3} 
                             onClick={this.handleTabClick} 
-                            isSelected={step === 3 ? true : false} 
-                            isClickable={step > 3 ? true : false} 
+                            isSelected={step === 3} 
+                            isClickable={step > 3} 
                         >Finish</Step>
                     </div>
                 </div>
@@ -102,7 +103,7 @@ class App extends Component {
                     <button 
                         onClick={this.handleClickNextForm} 
                         className="button-next" 
-                        disabled={this.isFormCommitable() ? '' : 'disabled'}
+                        disabled={disabled}
                     >Next</button>
                 </div>
             </div>
