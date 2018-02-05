@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <Switcher>
         <VideoPlayer />
-        <CardNumberHolder />
+        <CardNumberHolder name="Card number formating" />
         <ModalButton />
       </Switcher>
     );
