@@ -17,6 +17,9 @@ describe('Компонент App:', () => {
 
       expect(wrapper.find(Private)).toHaveLength(0);
       expect(wrapper.find(Auth)).toHaveLength(1);
+
+      console.log(wrapper.find(Private));
+      console.log(wrapper.find(Auth));
     });
     it('Приложение должно делать редирект с рандомного url /randomadsfadf на / если state.isAuthorized === false', () => {
       const wrapper = mount(
