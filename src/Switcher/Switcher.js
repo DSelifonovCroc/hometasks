@@ -14,6 +14,7 @@ class Switcher extends Component {
   }
 
   render() {
+    const childrenArray = React.Children.toArray(this.props.children);
     
     return (
         <div className="switcher">
@@ -24,7 +25,7 @@ class Switcher extends Component {
 
                 let childName = child.type.displayName ? child.type.displayName : child.type.name;
 
-                return (<li onClick={this.toggleChild} className="component-list__name" data-id={index}>{childName}</li>)
+                return (<li onClick={this.handleSwithChild} className="component-list__name" data-id={index}>{childName}</li>)
               })
             }
             </ul>
@@ -33,7 +34,7 @@ class Switcher extends Component {
           <hr/>
 
           <div className="component-wrapper">
-              {this.props.children[this.state.selectedChild]}
+            {childrenArray[this.state.selectedChild]}
           </div>
         </div>
     );
