@@ -5,7 +5,7 @@ import {Redirect} from 'react-router-dom';
 class Auth extends Component {
 
   state = {
-    isAuthorized,
+    isAuthorized: isAuthorized,
     email: '',
     password: '',
     showError: false
@@ -13,9 +13,9 @@ class Auth extends Component {
 
   handleSubmit = () => {
     const {email, password} = this.state;
-    authorizeUser(email, password);
+    const authorized = authorizeUser(email, password);
 
-    isAuthorized ? this.props.history.push("/") : this.setState({showError: true});
+    this.setState({isAuthorized: authorized, showError: !authorized});
   }
 
   handleChange = event => {
@@ -28,6 +28,8 @@ class Auth extends Component {
     return (
       <div>
 
+        {this.state.isAuthorized && <Redirect from="/auth" to="/" />}
+
         <div className="auth-form">
           <input name="email"     value={email}    onChange={this.handleChange} />
           <input name="password"  value={password} onChange={this.handleChange} />
@@ -36,8 +38,6 @@ class Auth extends Component {
         </div> 
 
         {showError && <p className="error">Wrong login or password</p>}
-
-        {this.state.isAuthorized && <Redirect to="/" />}
 
       </div>
     );
