@@ -4,9 +4,6 @@ import './Order.css';
 class Order extends Component{
 
     render(){
-
-        console.log(this.props)
-
         const {name, price, createdAt} = this.props.data;
 
         return (

@@ -20,3 +20,7 @@ export default function budget(state = initState, action){
             return state;
         }
 }
+
+export const getBudget = state => {
+    return state.budget;
+}

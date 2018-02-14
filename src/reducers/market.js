@@ -10,3 +10,7 @@ export default function market(state = {orders: []}, action){
             return state;
         }
 };
+
+export const getMarketOrders = state => {
+    return state.market.orders;
+};

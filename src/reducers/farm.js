@@ -11,3 +11,7 @@ export default function farm(state = {orders: []}, action){
             return state;
         }
 }
+
+export const getFarmOrders = state => {
+    return state.farm.orders;
+}

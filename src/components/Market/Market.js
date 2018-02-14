@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {createOrder, moveOrderToFarm} from './../../actions/marketActions';
+import {getMarketOrders} from './../../reducers/market';
+
 import Order from './../Order/Order';
 
 import './Market.css';
@@ -37,19 +39,32 @@ const getNewOrder = () => {
   };
 };
 
-export class Market extends Component {
+class Market extends Component {
+
+  newOrderClick = () => {
+    const newOrder = getNewOrder();
+    this.props.createOrder(newOrder);
+  }
+
+  toFarmClick = () => {
+    const {market} = this.props;
+    this.props.moveOrderToFarm(market[0])
+  }
+
   render() {
-    let newOrder = getNewOrder()
-    const {createOrder, moveOrderToFarm, market} = this.props;
+    const {market} = this.props;
+    const onOrders = market.length === 0
 
     return (
       <div className="market">
         <h2>Новые заказы в магазине</h2>
         
-        <button onClick={() => createOrder(newOrder)} className="new-orders__create-button">Создать заказ</button>
-        <button onClick={() => moveOrderToFarm(market[0])} >Отправить заказ на ферму</button>
+        <button onClick={this.newOrderClick} className="new-orders__create-button">Создать заказ</button>
+        <button onClick={this.toFarmClick} disabled={onOrders}>Отправить заказ на ферму</button>
 
-        <div className="order-list">{ market.map((item, index) => <Order key={index} data={item} />) }</div>
+        <div className="order-list">
+          { market.map( (item, index) => <Order key={index} data={item} /> ) }
+        </div>
       </div>
     );
   }
@@ -57,19 +72,13 @@ export class Market extends Component {
 
 const mapStateToProps = state => {
   return {
-    market: state.market.orders
+    market: getMarketOrders(state)
   }
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    createOrder: payload => {
-      dispatch(createOrder(payload))
-    },
-    moveOrderToFarm: payload => {
-      dispatch(moveOrderToFarm(payload))
-    }
-  }
+const mapDispatchToProps = {
+  createOrder,
+  moveOrderToFarm
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Market);

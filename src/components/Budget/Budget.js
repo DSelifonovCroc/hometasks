@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
+import {getBudget} from './../../reducers/budget';
+
 import './Budget.css';
 
 class Budget extends Component{
 
     render(){
         const {profit, marketExpanse, deliveryExpanse, farmExpanse} = this.props.budget;
-        let total = profit - marketExpanse - deliveryExpanse - farmExpanse;
+        const total = profit - marketExpanse - deliveryExpanse - farmExpanse;
 
         return (
             <div className="budget">
@@ -23,13 +25,10 @@ class Budget extends Component{
     }
 }
 
-
 const mapStateToProps = state => {
     return {
-        budget: state.budget
+        budget: getBudget(state)
     }
   };
-  
-const mapDispatchToProps = ({});
-  
-export default connect(mapStateToProps, mapDispatchToProps)(Budget);
+    
+export default connect(mapStateToProps)(Budget);
