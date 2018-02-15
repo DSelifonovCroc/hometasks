@@ -1,0 +1,25 @@
+.App{
+    margin: 20px;
+}
+
+.fetching, .search-control{
+    text-align: center;
+}
+
+.t-search-result, .cast{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.t-preview, .t-person{
+    max-width: 300px;
+    margin: 10px;
+}
