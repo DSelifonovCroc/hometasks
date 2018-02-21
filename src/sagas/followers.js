@@ -1,12 +1,10 @@
-import {
-  fetchFollowersRequest,
-  fetchFollowersSuccess,
-  fetchFollowersFailure,
-} from '../actions/users';
 import {takeLatest, call, put} from 'redux-saga/effects';
 import {getUserFollowers} from '../api';
 
-function* fetchFollowersSaga(action) {
+import {fetchFollowersRequest, fetchFollowersSuccess, fetchFollowersFailure} from '../actions/users';
+
+
+export function* fetchFollowersSaga(action) {
   try {
     const response = yield call(getUserFollowers, action.payload);
     yield put(fetchFollowersSuccess(response.data));

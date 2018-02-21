@@ -1,0 +1,109 @@
+.app-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth{
+    width: 300px;
+}
+
+.auth input{
+    display: block;
+    width: 100%;
+}
+
+/* user page */
+
+.header{
+    width: 400px;
+    margin: 50px auto 20px;
+    text-align: center;
+}
+
+.user{
+    margin: 40px 20px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.user .user-data{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.user .user-data .user-data-logo{
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.user .user-data .user-data-logo img, 
+.user .user-followers .follower .follower-logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.user .user-data .user-data-description,
+.user .user-followers .follower .follower-description{
+    padding-left: 20px;
+    text-align: left;
+}
+
+.user .user-followers{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 20px 60px;
+}
+
+.user .user-followers .follower{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding: 30px;
+}
+
+.user .user-followers .follower .follower-logo{
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
