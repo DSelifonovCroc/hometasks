@@ -46,24 +46,4 @@ describe('user reducer', () => {
             expect(next.followers).toEqual(payload);
           });
     });
-  
-
-  
-
-  
-
-//   it('экшен с типом CREATE_ORDER увеличивает profit на action.payload.price', () => {
-//     const next = user(undefined, {
-//       type: CREATE_ORDER,
-//       payload: {price: 111}
-//     });
-//     expect(next.profit).toEqual(111);
-//   });
-
-//   it('экшен с типом MOVE_ORDER_TO_FARM увеличивает farmExpanse на 100', () => {
-//     const next = user(undefined, {
-//       type: MOVE_ORDER_TO_FARM
-//     });
-//     expect(next.farmExpanse).toEqual(100);
-//   });
 });

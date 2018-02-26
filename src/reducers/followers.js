@@ -4,22 +4,21 @@ import {fetchFollowersRequest, fetchFollowersFailure, fetchFollowersSuccess} fro
 
 const initialState = {
     isFetching: false,
-    isFetched: false,
     followers: [],
     error: null
 }
 
 const followers = handleActions({
     [fetchFollowersRequest]: (state, action) => ({
-        ...state, isFetching: true, isFetched: false, followers: [], error: null
+        ...state, isFetching: true, followers: [], error: null
     }),
 
     [fetchFollowersSuccess]: (state, action) => ({
-        ...state, isFetching: false, isFetched: true, followers: action.payload, error: null
+        ...state, isFetching: false, followers: action.payload, error: null
     }),
 
     [fetchFollowersFailure]: (state, action) => ({
-        ...state, isFetching: false, isFetched: true, error: action.error, followers: []
+        ...state, isFetching: false, error: action.error, followers: []
     })
 }, initialState);
 
