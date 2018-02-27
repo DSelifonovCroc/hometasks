@@ -147,4 +147,5 @@ a {
 
 .button-panel a .currency-link{
     color: #dbe3f0;
+    cursor: pointer;
 }
