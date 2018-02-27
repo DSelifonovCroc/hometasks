@@ -1,0 +1,39 @@
+.chart-wrapper{
+    width: 750px;
+}
+
+.Chart{
+    border: 1px solid #dbe3f0;
+    height: 448px;
+    margin-top: 15px;
+    border-radius: 3px;
+}
+
+.offsets{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    background-color: #dbe3f0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.offsets button{
+    margin: 0 4px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #F7786B;
+    color: white;
+    padding: 2px 16px;
+    line-height: 1.15;
+}
+
+.offsets button:focus{
+    outline: none;
+}

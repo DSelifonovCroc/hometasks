@@ -1,0 +1,45 @@
+.wallet-item{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    width: 300px;
+}
+
+.wallet-item__coin{
+    background-color: #034F84;
+    border: 1px solid #034F84;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 6px 0;
+    -webkit-flex: 1 1 150px;
+    -ms-flex: 1 1 150px;
+    flex: 1 1 150px;
+    margin: 5px 0;
+}
+
+.coin-integer{
+    width: 55%;
+    display: inline-block;
+    text-align: right;
+}
+
+.coin-fraction{
+    color: #91A8D0;
+    max-width: 78px;
+    display: inline-block;
+    vertical-align: bottom;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.currency-name{
+    -webkit-flex: 1 1;
+    -ms-flex: 1 1;
+    flex: 1 1;
+    text-align: left;
+    margin: 15px 0 0 15px;
+}

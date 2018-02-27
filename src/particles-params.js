@@ -1,20 +1,22 @@
+const mainColor = "#F7786B";
+
 export default {
   particles: {
     number: {
-      value: 20,
+      value: 50,
       density: {
         enable: true,
         value_area: 1500
       }
     },
     color: {
-      value: '#4db6e2'
+      value: mainColor
     },
     shape: {
       type: 'polygon',
       stroke: {
         width: 0,
-        color: '#000000'
+        color: mainColor
       },
       polygon: {
         nb_sides: 5
@@ -26,7 +28,7 @@ export default {
       }
     },
     opacity: {
-      value: 0.6089109307524051,
+      value: 0.8,
       random: true,
       anim: {
         enable: false,
@@ -36,7 +38,7 @@ export default {
       }
     },
     size: {
-      value: 4.005992965476349,
+      value: 4,
       random: true,
       anim: {
         enable: false,
@@ -47,10 +49,10 @@ export default {
     },
     line_linked: {
       enable: true,
-      distance: 192.28766234286476,
-      color: '#4db6e2',
-      opacity: 0.8011985930952699,
-      width: 1.2819177489524316
+      distance: 190,
+      color: mainColor,
+      opacity: 0.8,
+      width: 1.4
     },
     move: {
       enable: true,
@@ -62,7 +64,7 @@ export default {
       bounce: false,
       attract: {
         enable: false,
-        rotateX: 3044.5546537620253,
+        rotateX: 3040,
         rotateY: 1200
       }
     }
