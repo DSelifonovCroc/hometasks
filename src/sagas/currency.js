@@ -41,7 +41,7 @@ export function* loginCurrencyFlow() {
     yield put(fetchBtcRequest(offset));
     yield put(fetchEthRequest(offset));
 
-    yield delay(15000);
+    yield call(delay, 15000);
   }
 }
 

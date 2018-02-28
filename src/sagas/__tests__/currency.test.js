@@ -40,9 +40,9 @@ describe('Currency sagas: ', () => {
       expect(saga.next().value).toEqual(put(fetchEthRequest()));
     });
 
-    // it('Step 4 expects to delay for 15 seconds', () => {
-    //   expect(saga.next().value).toEqual(delay(15000));
-    // });
+    it('Step 4 expects to delay for 15 seconds', () => {
+      expect(saga.next().value).toEqual(call(delay, 15000));
+    });
   });
 
   describe('fetchWalletFlow saga: ', () => {
