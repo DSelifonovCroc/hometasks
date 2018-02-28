@@ -14,11 +14,11 @@ const user = handleActions({
     }),
 
     [fetchUserSuccess]: (state, action) => ({
-        ...state, isFetching: false, info: action.payload.data.result, error: null
+        ...state, isFetching: false, info: action.payload, error: null
     }),
 
     [fetchUserFailure]: (state, action) => ({
-        ...state, isFetching: false, error: action.error
+        ...state, isFetching: false, error: action.payload
     })
 }, initialState);
 

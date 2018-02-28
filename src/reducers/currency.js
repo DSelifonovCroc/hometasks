@@ -10,7 +10,6 @@ import {
 import {offsets, currencies} from '../constants';
 
 
-
 const initialState = {
     offset: offsets['4ч'],
     selected: currencies.ethire,
@@ -36,7 +35,7 @@ const currency = handleActions({
     // bitcoin 
 
     [fetchBtcRequest]: (state, action) => ({
-        ...state, isBtcFetching: true,error: null
+        ...state, isBtcFetching: true, error: null
     }),
 
     [fetchBtcSuccess]: (state, action) => ({

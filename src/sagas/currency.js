@@ -61,7 +61,7 @@ export function* currencyWatch() {
 function* fetchWalletFlow() {
   try {
     const response = yield call(getWallet);
-    yield put(fetchWalletSuccess(response));
+    yield put(fetchWalletSuccess(response.data.result));
   } catch (error) {
     yield put(fetchWalletFailure(error));
   }
@@ -87,7 +87,7 @@ function* buyCurrencyFlow(action) {
     yield call(buyCurrency, selectedCurrency, value);
 
     const response = yield call(getWallet);
-    yield put(buyCurrencySuccess(response));
+    yield put(buyCurrencySuccess(response.data.result));
     
     yield put(fetchTransactionsRequest());
   } catch (error) {
@@ -107,7 +107,7 @@ function* sellCurrencyFlow(action) {
     yield call(sellCurrency, selectedCurrency, value);
 
     const response = yield call(getWallet);
-    yield put(sellCurrencySuccess(response));
+    yield put(sellCurrencySuccess(response.data.result));
 
     yield put(fetchTransactionsRequest());
   } catch (error) {

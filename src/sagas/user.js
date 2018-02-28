@@ -8,7 +8,7 @@ export function* fetchUserInfoSaga() {
   try {
     const user = yield call(getUserInfo);
 
-    yield put(fetchUserSuccess(user));
+    yield put(fetchUserSuccess(user.data.result));
   } catch (error) {
     yield put(fetchUserFailure(error));
   }

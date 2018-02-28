@@ -18,7 +18,7 @@ const wallet = handleActions({
     }),
 
     [fetchWalletSuccess]: (state, action) => ({
-        ...state, isFetching: false, coins: action.payload.data.result
+        ...state, isFetching: false, coins: action.payload
     }),
 
     [fetchWalletFailure]: (state, action) => ({
@@ -32,7 +32,7 @@ const wallet = handleActions({
     }),
 
     [buyCurrencySuccess]: (state, action) => ({
-        ...state, error: null, coins: action.payload.data.result
+        ...state, error: null, coins: action.payload
     }),
 
     [buyCurrencyFailure]: (state, action) => ({
@@ -46,7 +46,7 @@ const wallet = handleActions({
     }),
 
     [sellCurrencySuccess]: (state, action) => ({
-        ...state, error: null, coins: action.payload.data.result
+        ...state, error: null, coins: action.payload
     }),
 
     [sellCurrencyFailure]: (state, action) => ({

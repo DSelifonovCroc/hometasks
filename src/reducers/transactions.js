@@ -13,11 +13,11 @@ const transactions = handleActions({
     }),
 
     [fetchTransactionsSuccess]: (state, action) => ({
-        ...state, isFetching: false, records: action.payload.data.result, error: null
+        ...state, isFetching: false, records: action.payload, error: null
     }),
 
     [fetchTransactionsFailure]: (state, action) => ({
-        ...state, isFetching: false, error: action.error
+        ...state, isFetching: false, error: action.payload
     })
 }, initialState);
 

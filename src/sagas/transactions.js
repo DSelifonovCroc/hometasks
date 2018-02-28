@@ -8,7 +8,7 @@ export function* fetchUserTransactionsSaga() {
   try {
     const transactions = yield call(getUserTransactions);
 
-    yield put(fetchTransactionsSuccess(transactions));
+    yield put(fetchTransactionsSuccess(transactions.data.result));
   } catch (error) {
     yield put(fetchTransactionsFailure(error));
   }
