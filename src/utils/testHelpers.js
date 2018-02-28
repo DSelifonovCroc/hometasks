@@ -19,3 +19,9 @@ export const reducerClearFieldTest = (reducer, action, field) => {
     expect(next[field]).toEqual(null);
   });
 }
+
+export const methodIsDefined = (wrapper, method) => {
+  it(method, () => {
+    expect(wrapper.instance()[method]).toBeDefined();
+  });
+}

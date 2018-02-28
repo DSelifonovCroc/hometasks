@@ -14,7 +14,7 @@ import Particles from 'react-particles-js';
 import particlesParams from '../../particles-params';
 
 
-class LoginPage extends Component {
+export class LoginPage extends Component {
   state = {
     email: '',
     password: '',
