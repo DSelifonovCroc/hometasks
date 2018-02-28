@@ -17,7 +17,7 @@ import {
 } from '../actions/currency';
 
 
-function* fetchBtcFlow(action) {
+export function* fetchBtcFlow(action) {
   try {
     const response = yield call(candles, 'btc', action.payload);
     yield put(fetchBtcSuccess(response.data.result));
@@ -26,7 +26,7 @@ function* fetchBtcFlow(action) {
   }
 }
 
-function* fetchEthFlow(action) {
+export function* fetchEthFlow(action) {
   try {
     const response = yield call(candles, 'eth', action.payload);
     yield put(fetchEthSuccess(response.data.result));
@@ -35,7 +35,7 @@ function* fetchEthFlow(action) {
   }
 }
 
-function* loginCurrencyFlow() {
+export function* loginCurrencyFlow() {
   while (true) {
     const offset = yield select(getOffset);
     yield put(fetchBtcRequest(offset));
@@ -58,7 +58,7 @@ export function* currencyWatch() {
   }
 }
 
-function* fetchWalletFlow() {
+export function* fetchWalletFlow() {
   try {
     const response = yield call(getWallet);
     yield put(fetchWalletSuccess(response.data.result));
@@ -81,7 +81,7 @@ export function* fetchEthWatch() {
 
 // BUY CURRENCY
 
-function* buyCurrencyFlow(action) {
+export function* buyCurrencyFlow(action) {
   try {
     const {selectedCurrency, value} = action.payload;
     yield call(buyCurrency, selectedCurrency, value);
@@ -101,7 +101,7 @@ export function* buyCurrencyWatch() {
 
 // SELL CURRENCY
 
-function* sellCurrencyFlow(action) {
+export function* sellCurrencyFlow(action) {
   try {
     const {selectedCurrency, value} = action.payload;
     yield call(sellCurrency, selectedCurrency, value);

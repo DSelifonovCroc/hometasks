@@ -1,6 +1,6 @@
 import React, {Fragment, Component } from 'react';
 import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import TradeOperations from '../TradeOperations/TradeOperations';
 import Wallet from '../Wallet/Wallet';

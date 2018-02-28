@@ -7,13 +7,13 @@ import {getIsAuthorized} from '../reducers/auth';
 import {getTokenFromLocalStorage, setTokenToLocalStorage, removeTokenFromLocalStorage,} from '../localStorage';
 
 
-function* authSaga(action) {
+export function* authSaga(action) {
   try {
     const {email, password, isRegistered} = action.payload;
     const operation = isRegistered ? login : registration;
 
     const response = yield call(operation, {email, password});
-    const token = response.data.jwt;
+    let token = response.data ? response.data.jwt : null;
 
     yield call(setTokenApi, token);
     yield call(setTokenToLocalStorage, token);
@@ -40,7 +40,7 @@ export function* authFlow(){
   }
 }
 
-function* logoutSaga(){
+export function* logoutSaga(){
   yield call(removeTokenFromLocalStorage);
   yield call(clearTokenApi);
 }
